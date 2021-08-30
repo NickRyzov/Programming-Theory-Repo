@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Shape : MonoBehaviour
 {
-    GameFlow gF;
+    [SerializeField]
+    protected GameFlow gF;
     public string message;
 
-    private void Start()
+    public virtual void Start()
     {
         GameObject go = GameObject.Find("Canvas");
         gF = go.GetComponent<GameFlow>();
@@ -15,7 +16,14 @@ public class Shape : MonoBehaviour
 
     public virtual void OnMouseDown()
     {
-        gF.DisplayText(message);
+        if (gF == null)
+        {
+            print("error");
+        }
+        else
+        {
+            gF.DisplayText(message);
+        }
     }
 
 }
