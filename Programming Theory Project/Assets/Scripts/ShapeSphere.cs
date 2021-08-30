@@ -9,7 +9,7 @@ public class ShapeSphere : Shape
 
     public override void Start()
     {
-        transform.localScale = new Vector3(size[num], size[num], size[num]);
+        SetScale(num);
         base.Start();
     }
 
@@ -21,8 +21,13 @@ public class ShapeSphere : Shape
             n = Random.Range(0, size.Length);
         }
         while (n == num);
-        transform.localScale = new Vector3( size[n], size[n], size [n]);
+        SetScale(n);
         num = n;
         base.OnMouseDown();
+    }
+
+    void SetScale (int n)
+    {
+        transform.localScale = new Vector3(size[n], size[n], size[n]);
     }
 }

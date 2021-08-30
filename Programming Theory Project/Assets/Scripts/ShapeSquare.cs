@@ -13,9 +13,6 @@ public class ShapeSquare : Shape
     {
         base.Start();
         material = GetComponent<MeshRenderer>().material;
-        //message = namesOfColor[num]+"Square";
-        //material.color = colors[num];
-        //base.OnMouseDown();
     }
 
     public override void OnMouseDown()

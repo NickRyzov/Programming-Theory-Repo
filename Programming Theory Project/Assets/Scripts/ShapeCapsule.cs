@@ -10,7 +10,7 @@ public class ShapeCapsule : Shape
 
     public override void Start()
     {
-        transform.rotation = Quaternion.Euler(angles[num]);
+        SetAngles(num);
         base.Start();
     }
 
@@ -22,9 +22,14 @@ public class ShapeCapsule : Shape
             n = Random.Range(0, angles.Length);
         }
         while (n == num);
-        transform.rotation = Quaternion.Euler(angles[n]);
+        SetAngles(n);
         num = n;
         base.OnMouseDown();
 
+    }
+
+    void SetAngles (int n)
+    {
+        transform.rotation = Quaternion.Euler(angles[n]);
     }
 }
