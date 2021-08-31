@@ -13,6 +13,8 @@ public class Shape : MonoBehaviour
     float startTime;
     float sign = 1;
 
+    public int num { get; protected set; }
+
     public virtual void Start()
     {
         GameObject go = GameObject.Find("Canvas");
@@ -42,7 +44,7 @@ public class Shape : MonoBehaviour
 
     void ChangeMovingSpeed ()
     {
-        timeToOvercome = Random.Range(4f, 6f);
+        timeToOvercome = Random.Range(9f, 12f);
     }
 
     public virtual void ChangeParam()

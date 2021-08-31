@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ShapeSphere : Shape
 {
-    float[] size = {0.5f,0.75f, 1, 1.25f, 1.5f};
-    int num = 2;
+    float[] size = {0.4f,0.8f, 1.2f, 1.6f, 2f};
+    //int num = 2;
 
     public override void Start()
     {
+        num = 2;
         SetScale(num);
         base.Start();
     }
@@ -29,6 +30,7 @@ public class ShapeSphere : Shape
         while (n == num);
         SetScale(n);
         num = n;
+        gF.CheckWinConditions();
     }
     
 }

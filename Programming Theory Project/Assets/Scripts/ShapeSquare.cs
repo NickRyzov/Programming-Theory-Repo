@@ -7,10 +7,11 @@ public class ShapeSquare : Shape
     public Color [] colors;
     public string[] namesOfColor;
     Material material;
-    int num = 0;
+    //int num = 0;
 
     public override void Start()
     {
+        num = 0;
         material = GetComponent<MeshRenderer>().material;
         SetColor(num);
         base.Start();
@@ -29,6 +30,7 @@ public class ShapeSquare : Shape
         SetColor(n);
         message = namesOfColor[n] + " Square";
         num = n;
+        gF.CheckWinConditions();
     }
 
     void SetColor(int n)
