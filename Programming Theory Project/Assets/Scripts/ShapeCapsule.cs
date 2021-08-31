@@ -14,7 +14,12 @@ public class ShapeCapsule : Shape
         base.Start();
     }
 
-    public override void OnMouseDown()
+    void SetAngles (int n)
+    {
+        transform.rotation = Quaternion.Euler(angles[n]);
+    }
+
+    public override void ChangeParam()
     {
         int n;
         do
@@ -24,12 +29,5 @@ public class ShapeCapsule : Shape
         while (n == num);
         SetAngles(n);
         num = n;
-        base.OnMouseDown();
-
-    }
-
-    void SetAngles (int n)
-    {
-        transform.rotation = Quaternion.Euler(angles[n]);
     }
 }

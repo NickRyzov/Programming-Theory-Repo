@@ -13,7 +13,13 @@ public class ShapeSphere : Shape
         base.Start();
     }
 
-    public override void OnMouseDown()
+
+    void SetScale (int n)
+    {
+        transform.localScale = new Vector3(size[n], size[n], size[n]);
+    }
+
+    public override void ChangeParam()
     {
         int n;
         do
@@ -23,11 +29,6 @@ public class ShapeSphere : Shape
         while (n == num);
         SetScale(n);
         num = n;
-        base.OnMouseDown();
     }
-
-    void SetScale (int n)
-    {
-        transform.localScale = new Vector3(size[n], size[n], size[n]);
-    }
+    
 }

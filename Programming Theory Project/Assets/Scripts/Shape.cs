@@ -8,6 +8,7 @@ public class Shape : MonoBehaviour
     protected GameFlow gF;
     public float timeToOvercome;
     public string message;
+    public bool refrence;
     Vector3 startPos, finishPos;
     float startTime;
     float sign = 1;
@@ -16,34 +17,47 @@ public class Shape : MonoBehaviour
     {
         GameObject go = GameObject.Find("Canvas");
         gF = go.GetComponent<GameFlow>();
-        SetPositions();
+        if (!refrence)
+        {
+            SetPositions();
+        }
     }
 
-    public virtual void OnMouseDown()
+    protected void OnMouseDown()
     {
+       if (refrence) return;
+       ChangeParam();
        gF.DisplayText(message);
     }
 
     void SetPositions()
     {
         startPos = transform.position;
-        finishPos = new Vector3(transform.position.x, transform.position.y + (sign * 4), transform.position.z);
+        finishPos = new Vector3(transform.position.x, transform.position.y + (sign * 5), transform.position.z);
         startTime = Time.time;
         sign *= -1;
         ChangeMovingSpeed();
+        ChangeParam();
     }
 
     void ChangeMovingSpeed ()
     {
-        timeToOvercome = Random.Range(1, 2.5f);
+        timeToOvercome = Random.Range(4f, 6f);
     }
+
+    public virtual void ChangeParam()
+    { }
 
     private void Update()
     {
+        if (refrence) return;
         float u = (Time.time - startTime) / timeToOvercome;
         Vector3 currentPos = (1 - u) * startPos + u * finishPos;
         transform.position = currentPos;
-        if (u >= 1) SetPositions();
+        if (u >= 1)
+        {
+            SetPositions();
+        }
     }
 
 

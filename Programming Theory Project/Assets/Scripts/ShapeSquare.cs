@@ -11,11 +11,14 @@ public class ShapeSquare : Shape
 
     public override void Start()
     {
-        base.Start();
         material = GetComponent<MeshRenderer>().material;
+        SetColor(num);
+        base.Start();
     }
 
-    public override void OnMouseDown()
+    
+
+    public override void ChangeParam()
     {
         int n;
         do
@@ -23,9 +26,13 @@ public class ShapeSquare : Shape
             n = Random.Range(0, colors.Length);
         }
         while (n == num);
-        material.color = colors[n];
-        message = namesOfColor[n]+" Square";
+        SetColor(n);
+        message = namesOfColor[n] + " Square";
         num = n;
-        base.OnMouseDown();
+    }
+
+    void SetColor(int n)
+    {
+        material.color = colors[n];
     }
 }
