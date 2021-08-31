@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// INHERITANCE
 public class ShapeSphere : Shape
 {
     float[] size = {0.4f,0.8f, 1.2f, 1.6f, 2f, 1, 1.4f,2.2f,0.6f};
-   
+
+    // POLYMORPHISM
     public override void Start()
     {
         if (refrence) num = FindNum();
@@ -19,6 +21,8 @@ public class ShapeSphere : Shape
         transform.localScale = new Vector3(size[n], size[n], size[n]);
     }
 
+
+    // POLYMORPHISM
     public override void ChangeParam()
     {
         int n;

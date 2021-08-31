@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Difficulty : MonoBehaviour
 {
+    // ENCAPSULATION
     public static Difficulty instance { get; private set; }//Снаружи можно читать внутри можно читать и записывать
     public int dLevel { get; private set; }
 

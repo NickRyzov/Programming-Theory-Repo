@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// INHERITANCE
 public class ShapeSquare : Shape
 {
     public Color [] colors;
     public string[] namesOfColor;
     Material material;
-    //int num = 0;
 
+    // POLYMORPHISM
     public override void Start()
     {
         if (refrence) num = FindNum();
@@ -17,8 +18,7 @@ public class ShapeSquare : Shape
         base.Start();
     }
 
-    
-
+    // POLYMORPHISM
     public override void ChangeParam()
     {
         int n;

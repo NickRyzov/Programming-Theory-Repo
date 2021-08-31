@@ -12,7 +12,8 @@ public class Shape : MonoBehaviour
     Vector3 startPos, finishPos;
     float startTime;
     float sign = 1;
-    
+
+    // ENCAPSULATION
     public int num { get; protected set; }
 
     public virtual void Start()
@@ -39,6 +40,7 @@ public class Shape : MonoBehaviour
         }
     }
 
+    // ABSTRACTION Everywhere
     protected void OnMouseDown()
     {
        if (refrence) return;
@@ -46,6 +48,7 @@ public class Shape : MonoBehaviour
        gF.DisplayText(message);
     }
 
+    // ABSTRACTION Everywhere
     void SetPositions()
     {
         startPos = transform.position;
@@ -56,6 +59,7 @@ public class Shape : MonoBehaviour
         ChangeParam();
     }
 
+    // ABSTRACTION Everywhere
     void ChangeMovingSpeed ()
     {
         //Возможная скорость перемещения формы задается лимитами определяемыми выбранной сложностью
