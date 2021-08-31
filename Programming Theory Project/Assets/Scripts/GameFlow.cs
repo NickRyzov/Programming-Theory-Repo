@@ -7,11 +7,21 @@ using UnityEngine.UI;
 public class GameFlow : MonoBehaviour
 {
     public Text resultText;
-    public GameObject [] rBut;
+    public Text difText;
+    public GameObject[] rBut;
     //—сылки на ключевые объекты
     public GameObject[] shapesObj;
     Shape[] shapes;
+    Vector2[] speedLimits = { new Vector2(9,10 ), new Vector2(7, 8), new Vector2(5, 8) };
+    string[] dNames = { "Easy", "Average", "Hard" };
 
+    public Vector2[] SPEED_LIMITS
+    {
+        get
+        {
+            return speedLimits;
+        }
+    }
     private void Awake()
     {
         shapes = new Shape[shapesObj.Length];
@@ -19,6 +29,11 @@ public class GameFlow : MonoBehaviour
         {
             shapes[i] = shapesObj[i].GetComponent<Shape>();
         }
+    }
+
+    private void Start()
+    {
+        difText.text = "Difficlulty Level: " + dNames[Difficulty.instance.dLevel];
     }
 
     public void CheckWinConditions()

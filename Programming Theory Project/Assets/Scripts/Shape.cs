@@ -12,7 +12,7 @@ public class Shape : MonoBehaviour
     Vector3 startPos, finishPos;
     float startTime;
     float sign = 1;
-
+    
     public int num { get; protected set; }
 
     public virtual void Start()
@@ -22,6 +22,20 @@ public class Shape : MonoBehaviour
         if (!refrence)
         {
             SetPositions();
+        }
+    }
+
+    protected int FindNum()
+    {
+        int n;
+        //максимальная сложность
+        if (Difficulty.instance.dLevel== 2)
+        {
+            return n = Random.Range(0, 9);
+        }
+        else
+        {
+            return n = Random.Range(0, 5);
         }
     }
 
@@ -44,7 +58,9 @@ public class Shape : MonoBehaviour
 
     void ChangeMovingSpeed ()
     {
-        timeToOvercome = Random.Range(9f, 12f);
+        //Возможная скорость перемещения формы задается лимитами определяемыми выбранной сложностью
+        timeToOvercome = Random.Range(gF.SPEED_LIMITS[Difficulty.instance.dLevel].x,
+            gF.SPEED_LIMITS[Difficulty.instance.dLevel].y);
     }
 
     public virtual void ChangeParam()

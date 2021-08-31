@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void StartGame()
+    public void StartGame(int n)
     {
+        Difficulty.instance.SetDifficulty(n);
         SceneManager.LoadScene(1);
     }
 }

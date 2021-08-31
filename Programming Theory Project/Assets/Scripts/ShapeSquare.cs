@@ -11,7 +11,7 @@ public class ShapeSquare : Shape
 
     public override void Start()
     {
-        num = 0;
+        if (refrence) num = FindNum();
         material = GetComponent<MeshRenderer>().material;
         SetColor(num);
         base.Start();
@@ -24,7 +24,7 @@ public class ShapeSquare : Shape
         int n;
         do
         {
-            n = Random.Range(0, colors.Length);
+            n = FindNum();
         }
         while (n == num);
         SetColor(n);
